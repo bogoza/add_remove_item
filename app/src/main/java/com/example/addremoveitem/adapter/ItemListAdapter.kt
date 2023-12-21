@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.addremoveitem.Data.Item
+import com.example.addremoveitem.R
 import com.example.addremoveitem.databinding.ItemRvBinding
 
 
@@ -25,6 +27,12 @@ class ItemListAdapter:ListAdapter<Item,ItemListAdapter.ItemViewHolder>(ItemDiff(
         fun bind() = with(binding){
             val position = currentList[adapterPosition]
             rvTv.text = position.title
+            Glide
+                .with(root.context)
+                .load(position.image)
+                .centerCrop()
+                .placeholder(R.drawable.ic_default)
+                .into(rvImage)
         }
     }
 
