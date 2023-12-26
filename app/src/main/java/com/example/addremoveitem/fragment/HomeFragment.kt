@@ -28,8 +28,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val itemViewModel: ItemViewModel by activityViewModels()
     private lateinit var adapter:ItemListAdapter
 
-
-
     override fun start() {
         drawRecycler()
         observe()
@@ -49,6 +47,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         adapter = ItemListAdapter()
         binding.homeRv.layoutManager = GridLayoutManager(requireContext(),2)
         binding.homeRv.adapter = adapter
+        adapter.setOnItemClickListener { items ->
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToUpdateDeleteFragment(
+                    items
+                )
+            )
+        }
     }
 
 

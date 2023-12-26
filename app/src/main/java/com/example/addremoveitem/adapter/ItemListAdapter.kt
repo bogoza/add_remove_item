@@ -22,6 +22,10 @@ class ItemListAdapter:ListAdapter<Item,ItemListAdapter.ItemViewHolder>(ItemDiff(
         }
 
     }
+    private var onItemClickListener:((items:Item) ->Unit)? = null
+    fun setOnItemClickListener(listener:(items:Item) -> Unit){
+        onItemClickListener = listener
+    }
 
     inner class ItemViewHolder(private val binding:ItemRvBinding):RecyclerView.ViewHolder(binding.root) {
         fun bind() = with(binding){
@@ -33,6 +37,13 @@ class ItemListAdapter:ListAdapter<Item,ItemListAdapter.ItemViewHolder>(ItemDiff(
                 .centerCrop()
                 .placeholder(R.drawable.ic_default)
                 .into(rvImage)
+        }
+        fun listener(){
+            val item = currentList[adapterPosition]
+
+            binding.root.setOnClickListener {
+                onItemClickListener?.invoke(item)
+            }
         }
     }
 
@@ -46,5 +57,6 @@ class ItemListAdapter:ListAdapter<Item,ItemListAdapter.ItemViewHolder>(ItemDiff(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind()
+        holder.listener()
     }
 }

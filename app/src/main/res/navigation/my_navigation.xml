@@ -13,10 +13,23 @@
         <action
             android:id="@+id/action_homeFragment_to_addItemFragment"
             app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_updateDeleteFragment"
+            app:destination="@id/updateDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.example.addremoveitem.fragment.AddItemFragment"
         android:label="fragment_add_item"
         tools:layout="@layout/fragment_add_item" />
+    <fragment
+        android:id="@+id/updateDeleteFragment"
+        android:name="com.example.addremoveitem.fragment.UpdateDeleteFragment"
+        android:label="fragment_update_delete"
+        tools:layout="@layout/fragment_update_delete" >
+
+        <argument
+            android:name="Item"
+            app:argType="com.example.addremoveitem.Data.Item" />
+    </fragment>
 </navigation>

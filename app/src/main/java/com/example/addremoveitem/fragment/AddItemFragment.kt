@@ -24,7 +24,7 @@ class AddItemFragment : BaseFragment<FragmentAddItemBinding>(FragmentAddItemBind
 
     private fun listener()= with(binding){
         addItemBtn.setOnClickListener {
-            if (!addImageEt.text.isNullOrEmpty() || !addTitleEt.text.isNullOrEmpty()){
+            if (!addImageEt.text.isNullOrEmpty() && !addTitleEt.text.isNullOrEmpty()){
                 addItem()
                 findNavController().navigate(R.id.homeFragment)
             }else{
