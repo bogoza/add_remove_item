@@ -41,6 +41,7 @@
         android:layout_marginTop="5dp"
         />
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/item_update_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/item_image"
@@ -51,6 +52,7 @@
         android:layout_marginTop="10dp"
         />
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/item_delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/item_image"
@@ -60,4 +62,25 @@
         android:textColor="@color/white"
         android:text="delete"
         />
+    <EditText
+        android:id="@+id/update_image_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_update_btn"
+        android:hint="Update image"
+        />
+    <EditText
+        android:id="@+id/update_title_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/update_image_et"
+        android:hint="Update title"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

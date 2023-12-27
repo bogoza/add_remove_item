@@ -32,11 +32,11 @@ class ItemViewModel:ViewModel() {
         _rvItemsList.value.add(item)
     }
     fun update(item: Item){
-        _rvItemsList.value.remove(editDelete)
+        _rvItemsList.value.remove(item)
         _rvItemsList.value.add(item)
     }
-    fun removeItem(){
-        _rvItemsList.value.remove(editDelete)
+    fun removeItem(item:Item){
+        _rvItemsList.value.remove(item)
     }
 
 }
